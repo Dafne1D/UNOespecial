@@ -6,6 +6,7 @@ import java.util.Collections;
 public class OrdreJugadors {
     private LinkedList<Jugador> jugadors;
     private int jugadorActiuIndex = 0;
+    private boolean sentitNormal = true;
 
     public OrdreJugadors() {
         jugadors = new LinkedList<>();
@@ -18,10 +19,21 @@ public class OrdreJugadors {
     }
 
     public void passarTorn() {
-        jugadorActiuIndex++;
-        if (jugadorActiuIndex >jugadors.size()-1) {
-            jugadorActiuIndex =0;
+        if (sentitNormal){
+            jugadorActiuIndex++;
+            if (jugadorActiuIndex > jugadors.size()-1){
+                jugadorActiuIndex = 0;
+            }
+        }else {
+            jugadorActiuIndex--;
+            if (jugadorActiuIndex < 0){
+                jugadorActiuIndex = jugadors.size()-1;
+            }
         }
+    }
+
+    public void canviDeSentit() {
+        sentitNormal = !sentitNormal;
     }
 
     public void barrejarOrdre() {

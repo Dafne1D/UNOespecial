@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Jugador {
     private final String nom;
-    private ArrayList<CartaNormal> cartes;
+    private ArrayList<Carta> cartes;
 
     public Jugador(String nomJugador) {
         nom = nomJugador;
@@ -12,15 +12,15 @@ public class Jugador {
     }
 
     public String getNom(){return nom;}
-    public ArrayList<CartaNormal> getCartes(){return cartes;}
+    public ArrayList<Carta> getCartes(){return cartes;}
 
     public int nombreDeCartes() {
         return cartes.size();
     }
 
-    public void tirarCarta(CartaNormal cartaNormal, Pilo pilo) {
-        cartes.remove(cartaNormal);
-        pilo.addCarta(cartaNormal);
+    public void tirarCarta(Carta carta, Pilo pilo) {
+        cartes.remove(carta);
+        pilo.addCarta(carta);
     }
 
     public void robarCarta(Mazo mazo) {

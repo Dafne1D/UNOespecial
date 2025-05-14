@@ -40,7 +40,7 @@ public class Partida {
     }
 
     private boolean torn() {
-        // torn() torna true si la partida s'acaba. Torna false si continua.
+        // torn() torna true si la partida acaba, False si continua.
         Jugador jugadorActiu = ordreJugadors.getJugadorActiu();
         UI.tornJugador(jugadorActiu, pilo);
 
@@ -54,8 +54,8 @@ public class Partida {
                 potTirar = jugadorActiu.potTirarCarta(pilo);
             }
         }
-        CartaNormal cartaNormalTirada = UI.demanarCarta(jugadorActiu, pilo);
-        jugadorActiu.tirarCarta(cartaNormalTirada,pilo);
+        Carta cartaTirada = UI.demanarCarta(jugadorActiu, pilo);
+        jugadorActiu.tirarCarta(cartaTirada,pilo);
 
         if (jugadorActiu.nombreDeCartes() <= 0) {
             return true;

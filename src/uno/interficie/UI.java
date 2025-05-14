@@ -18,55 +18,61 @@ public class UI {
     private static String pintarCarta(Carta carta) {
         String color = "";
         switch (carta.getColor()) {
-            case Carta.Color.Groc:
+            case Groc:
                 color = YELLOW;
                 break;
-            case Carta.Color.Vermell:
+            case Vermell:
                 color = RED;
                 break;
-            case Carta.Color.Blau:
+            case Blau:
                 color = BLUE;
                 break;
-            case Carta.Color.Verd:
+            case Verd:
                 color = GREEN;
                 break;
             default:
                 break;
         }
 
-        String valCarta;
+        String valorCarta;
         if (carta instanceof CartaNormal){
             CartaNormal cartaNormal = (CartaNormal) carta;
-            valCarta = String.valueOf(cartaNormal.getNumero());
-        } else if (carta instanceof mesDos) {
-            
+            valorCarta = String.valueOf(cartaNormal.getNumero());
+        } else if (carta instanceof MesDos) {
+            valorCarta = "+2";
+        } else if (carta instanceof MesQuatre) {
+            valorCarta = "+4";
+        } else if (carta instanceof CanviSentit) {
+            valorCarta = "↺";
+        } else {
+            valorCarta = "?";
         }
 
         String cartaPintada = String.format("""
-            %s┌─────────┐%s
-            %s│ %d       │%s
-            %s│         │%s
-            %s│   UNO   │%s
-            %s│         │%s
-            %s│       %d │%s
-            %s└─────────┘%s""",
+            %s   ┌───────────┐%s
+            %s  │%s         │%s
+            %s   │           │%s
+            %s   │    UNO    │%s
+            %s   │           │%s
+            %s   │       %s   │%s
+            %s   └───────────┘%s""",
             color, RESET,
-            color, cartaNormal.getNumero(), RESET,
+            color, valorCarta, RESET,
             color, RESET,
             color, RESET,
             color, RESET,
-            color, cartaNormal.getNumero(), RESET,
+            color, valorCarta, RESET,
             color, RESET);
 
 
         return cartaPintada;
     }
 
-    public static void mostrarCarta(CartaNormal cartaNormal) {
-        System.out.println(pintarCarta(cartaNormal));
+    public static void mostrarCarta(Carta carta) {
+        System.out.println(pintarCarta(carta));
     }
 
-    public static void mostrarCartes(ArrayList<CartaNormal> cartes) {
+    public static void mostrarCartes(ArrayList<Carta> cartes) {
         int quantitat = cartes.size();
         String[][] cartesPintades = new String[quantitat][];
 
@@ -128,17 +134,17 @@ public class UI {
         System.out.println();
     }
 
-    public static CartaNormal demanarCarta(Jugador jugador, Pilo pilo) {
+    public static Carta demanarCarta(Jugador jugador, Pilo pilo) {
         mostrarMa(jugador);
         do {
             System.out.print("Escull una carta: ");
             int indexCartaEscollida = input.nextInt();
 
             if (indexCartaEscollida > 0 && indexCartaEscollida <= jugador.nombreDeCartes()) {
-                CartaNormal cartaNormalEscollida = jugador.getCartes().get(indexCartaEscollida-1);
+                Carta cartaEscollida = jugador.getCartes().get(indexCartaEscollida-1);
 
-                if (cartaNormalEscollida.esCompatible(pilo.consultarCarta())){
-                    return cartaNormalEscollida;
+                if (cartaEscollida.esCompatible(pilo.consultarCarta())){
+                    return cartaEscollida;
                 } else {
                     System.out.println("Aquesta carta no coincideix amb l'última del pilo!");
                 }
