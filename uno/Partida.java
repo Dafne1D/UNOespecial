@@ -10,7 +10,7 @@ public class Partida {
 
     private int quantitatJugadors;
 
-    Mazo mazo = new Mazo();
+    Mazo mazo = new Mazo(this);
     Pilo pilo = new Pilo();
     OrdreJugadors ordreJugadors = new OrdreJugadors();
 
@@ -71,4 +71,7 @@ public class Partida {
             ordreJugadors.passarTorn();
         }
     }
+
+    public OrdreJugadors getOrdreJugadors() { return ordreJugadors; }
+    public Mazo getMazo(){return mazo;}
 }

@@ -34,7 +34,10 @@ public class OrdreJugadors {
 
     public void canviDeSentit() {
         sentitNormal = !sentitNormal;
+        passarTorn();
     }
+
+
 
     public void barrejarOrdre() {
         Collections.shuffle(jugadors);

@@ -43,29 +43,46 @@ public class UI {
         } else if (carta instanceof MesQuatre) {
             valorCarta = "+4";
         } else if (carta instanceof CanviSentit) {
-            valorCarta = "↺";
-        } else {
-            valorCarta = "?";
+            valorCarta = "S";
+        } else{
+            valorCarta = "P";
         }
 
-        String cartaPintada = String.format("""
-            %s   ┌───────────┐%s
-            %s  │%s         │%s
-            %s   │           │%s
-            %s   │    UNO    │%s
-            %s   │           │%s
-            %s   │       %s   │%s
-            %s   └───────────┘%s""",
-            color, RESET,
-            color, valorCarta, RESET,
-            color, RESET,
-            color, RESET,
-            color, RESET,
-            color, valorCarta, RESET,
-            color, RESET);
-
-
-        return cartaPintada;
+        if (valorCarta.length() < 2){
+            String cartaPintada = String.format("""
+            %s┌─────────┐%s
+            %s│ %s       │%s
+            %s│         │%s
+            %s│   UNO   │%s
+            %s│         │%s
+            %s│      %s  │%s
+            %s└─────────┘%s""",
+                    color, RESET,
+                    color, valorCarta, RESET,
+                    color, RESET,
+                    color, RESET,
+                    color, RESET,
+                    color, valorCarta, RESET,
+                    color, RESET);
+            return cartaPintada;
+        }else {
+            String cartaPintada = String.format("""
+            %s┌─────────┐%s
+            %s│ %s      │%s
+            %s│         │%s
+            %s│   UNO   │%s
+            %s│         │%s
+            %s│      %s │%s
+            %s└─────────┘%s""",
+                    color, RESET,
+                    color, valorCarta, RESET,
+                    color, RESET,
+                    color, RESET,
+                    color, RESET,
+                    color, valorCarta, RESET,
+                    color, RESET);
+            return cartaPintada;
+        }
     }
 
     public static void mostrarCarta(Carta carta) {

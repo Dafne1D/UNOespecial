@@ -21,6 +21,7 @@ public class Jugador {
     public void tirarCarta(Carta carta, Pilo pilo) {
         cartes.remove(carta);
         pilo.addCarta(carta);
+        carta.accio();
     }
 
     public void robarCarta(Mazo mazo) {

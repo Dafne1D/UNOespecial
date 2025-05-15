@@ -7,7 +7,9 @@ public abstract class Carta {
         Vermell,
         Blau,
         Verd,
+        Negre,
     }
+    public void accio(){}
 
     public Carta(Color color) {
         this.color = color;
