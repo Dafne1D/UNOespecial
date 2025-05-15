@@ -17,6 +17,6 @@ public class MesDos extends CartaEspecial {
         Mazo mazo = partida.getMazo();
         jugador.robarCarta(mazo);
         jugador.robarCarta(mazo);
-        System.out.println(jugador.getNom()+"ha robat 2 cartes");
+        System.out.println(jugador.getNom()+" Ha robat 2 cartes");
     }
 }

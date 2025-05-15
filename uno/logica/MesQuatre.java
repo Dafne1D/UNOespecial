@@ -19,6 +19,6 @@ public class MesQuatre extends CartaEspecial{
         for (int i = 0; i<4; i++){
             jugador.robarCarta(mazo);
         }
-        System.out.println(jugador.getNom()+"Ha robat 4 cartes");
+        System.out.println(jugador.getNom()+" Ha robat 4 cartes");
     }
 }

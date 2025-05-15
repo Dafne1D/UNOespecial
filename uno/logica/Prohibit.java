@@ -15,6 +15,6 @@ public class Prohibit extends CartaEspecial{
         OrdreJugadors ordre = partida.getOrdreJugadors();
         Jugador jugador = ordre.getJugadorActiu();
         ordre.passarTorn();
-        System.out.println(jugador.getNom()+ "Ha estat bloquejat");
+        System.out.println(jugador.getNom()+ " Ha estat bloquejat");
     }
 }
